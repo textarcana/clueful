@@ -1,0 +1,10 @@
+# Emacs
+*~
+\#*\#
+.\#*
+
+# MacOS tmp files
+.DS_Store
+
+# perl -i.bak -wlpe backup files
+*.bak
