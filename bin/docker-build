@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -o errexit -o nounset -o pipefail
+
+set -x
+
+time docker build \
+     -t "perl_analytics:v0.0.1" \
+     -f "lib/docker/perl-base.Dockerfile" "lib/docker"
+
+time docker build \
+     -t "analytics:v0.0.1" \
+     -f "lib/docker/analytics-base.Dockerfile" "lib/docker"
+
+time docker build \
+     -t "noahsussman/clueful:v0.0.3" \
+     --no-cache \
+     -f "lib/docker/clueful.Dockerfile" "lib/docker"

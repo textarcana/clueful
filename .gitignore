@@ -8,3 +8,4 @@
 
 # perl -i.bak -wlpe backup files
 *.bak
+opt

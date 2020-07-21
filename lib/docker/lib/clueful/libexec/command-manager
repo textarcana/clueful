@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -o errexit -o nounset -o pipefail
+
+help_text_and_exit(){
+    echo "Usage: clueful <command name> [<command arguments>]"
+    echo
+    echo "Available commands are:
+    github repo_search"
+    echo
+    exit 1
+}
+
+if [ -z "${2-}" ]; then
+    help_text_and_exit
+elif [ "$1" = 'github' ] && [ "$2" = 'repo_search' ]; then
+    cd toolkit/github-search
+    bin/repo_search "${@:3}"
+    cp -r opt/* /home/auto/opt
+else
+    help_text_and_exit
+fi
